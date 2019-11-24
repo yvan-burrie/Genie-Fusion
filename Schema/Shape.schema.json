@@ -1,0 +1,140 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "definitions": {
+    "Header": {
+      "properties": {
+        "version": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 4,
+              "maxLength": 4
+            },
+            {
+              "type": "string",
+              "enum": [
+                "2.0N",
+                "4.0X"
+              ]
+            }
+          ]
+        },
+        "comment": {
+          "type": "string"
+        }
+      },
+      "required": ["version"]
+    },
+    "Info": {
+      "definitions": {
+        "Property": {
+          "type": "string",
+          "enum": [
+            "NORMAL",
+            "COLOR_MASK",
+            "SHADOW_LAYER",
+            "OUTLINE",
+            "VFX_COLOR",
+            "VFX_ALPHA"
+          ]
+        },
+        "Outline": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 32768
+          }
+        }
+      },
+      "properties": {
+        "paletteOffset": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "properties": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            {
+              "type": "string",
+              "$ref": "#/definitions/Info/definitions/Property"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "$ref": "#/definitions/Info/definitions/Property"
+              }
+            }
+          ]
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "hotspot": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "integer"
+          }
+        },
+        "outlines": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/Info/definitions/Outline"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "commands": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          }
+        }
+      },
+      "required": [
+        "outlines",
+        "commands"
+      ]
+    }
+  },
+  "properties": {
+    "header": {
+      "$ref": "#/definitions/Header"
+    },
+    "frames": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Info"
+      }
+    }
+  },
+  "required": ["header", "frames"]
+}
