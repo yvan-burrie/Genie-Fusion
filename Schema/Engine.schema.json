@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "definitions": {
+    "Genie": {
+      "definitions": {
+        "Game": {
+          "definitions": {
+            "World": {
+              "definitions": {
+                "ColorTable": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "Sound": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                },
+                "Sprite": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              },
+              "type": "object",
+              "properties": {
+                "sounds": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Genie/definitions/Game/definitions/World/definitions/Sound"
+                  }
+                },
+                "sprites": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Genie/definitions/Game/definitions/World/definitions/Sprite"
+                  }
+                }
+              }
+            }
+          },
+          "type": "object",
+          "properties": {
+            "world": {
+              "$ref": "#/definitions/Genie/definitions/Game/definitions/World"
+            }
+          }
+        }
+      }
+    },
+    "Tribe": {
+      "definitions": {
+        "Game": {
+          "definitions": {
+            "World": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/Genie/definitions/Game/definitions/World"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "game": {
+      "$ref": "#/definitions/Genie/definitions/Game"
+    }
+  }
+}
