@@ -1,7 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "#Shape",
   "definitions": {
     "Header": {
+      "$id": "#Header",
       "properties": {
         "version": {
           "anyOf": [
@@ -26,8 +28,10 @@
       "required": ["version"]
     },
     "Info": {
+      "$id": "#Info",
       "definitions": {
         "Property": {
+          "$id": "#Property",
           "type": "string",
           "enum": [
             "NORMAL",
@@ -39,6 +43,7 @@
           ]
         },
         "Outline": {
+          "$id": "#Outline",
           "type": "array",
           "minItems": 2,
           "maxItems": 2,
@@ -70,13 +75,13 @@
             },
             {
               "type": "string",
-              "$ref": "#/definitions/Info/definitions/Property"
+              "$ref": "#Property"
             },
             {
               "type": "array",
               "items": {
                 "type": "string",
-                "$ref": "#/definitions/Info/definitions/Property"
+                "$ref": "#Property"
               }
             }
           ]
@@ -102,7 +107,7 @@
           "items": {
             "anyOf": [
               {
-                "$ref": "#/definitions/Info/definitions/Outline"
+                "$ref": "#Outline"
               },
               {
                 "type": "null"
@@ -128,12 +133,12 @@
   "type": "object",
   "properties": {
     "header": {
-      "$ref": "#/definitions/Header"
+      "$ref": "#Header"
     },
     "frames": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/Info"
+        "$ref": "#Info"
       }
     }
   },
