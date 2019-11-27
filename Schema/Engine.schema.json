@@ -22,19 +22,19 @@
       "definitions": {
         "Game": {
           "definitions": {
+            "ColorTable": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
             "World": {
               "definitions": {
-                "ColorTable": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
-                    "name": {
-                      "type": "string"
-                    }
-                  }
-                },
                 "Sound": {
                   "type": "object",
                   "properties": {
@@ -62,6 +62,12 @@
               },
               "type": "object",
               "properties": {
+                "colorTables": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Genie/definitions/Game/definitions/ColorTable"
+                  }
+                },
                 "sounds": {
                   "type": "array",
                   "items": {
