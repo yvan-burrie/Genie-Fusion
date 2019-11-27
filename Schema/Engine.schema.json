@@ -1,6 +1,23 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
+    "Picture": {
+      "type": "object",
+      "properties": {
+        "ownMemory": {
+          "type": "integer"
+        },
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "orientation": {
+          "type": "integer"
+        }
+      }
+    },
     "Genie": {
       "definitions": {
         "Game": {
