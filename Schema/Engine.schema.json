@@ -95,6 +95,11 @@
     "Tribe": {
       "definitions": {
         "Game": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Genie/definitions/Game"
+            }
+          ],
           "definitions": {
             "World": {
               "allOf": [
@@ -104,7 +109,12 @@
               ]
             }
           },
-          "type": "object"
+          "type": "object",
+          "properties": {
+            "world": {
+              "$ref": "#/definitions/Tribe/definitions/Game/definitions/World"
+            }
+          }
         }
       }
     }
@@ -112,7 +122,7 @@
   "type": "object",
   "properties": {
     "game": {
-      "$ref": "#/definitions/Genie/definitions/Game"
+      "$ref": "#/definitions/Tribe/definitions/Game"
     }
   }
 }
