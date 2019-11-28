@@ -257,6 +257,120 @@
                   "$ref": "#Genie.Scenario"
                 }
               }
+            },
+            "Map": {
+              "$id": "#Genie.Map",
+              "definitions": {
+                "Tile": {
+                  "$id": "#Genie.Tile",
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "not": {
+                          "anyOf": [
+                            {
+                              "type": "object"
+                            },
+                            {
+                              "type": "array"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "screenPosition": {
+                          "type": "array",
+                          "minItems": 2,
+                          "maxItems": 2,
+                          "items": {
+                            "type": "integer"
+                          }
+                        },
+                        "type": {
+                          "type": "integer"
+                        },
+                        "terrainId": {
+                          "type": "integer"
+                        },
+                        "height": {
+                          "type": "integer"
+                        },
+                        "overlayId": {
+                          "type": "integer"
+                        },
+                        "borderId": {
+                          "type": "integer"
+                        },
+                        "borderShape": {
+                          "type": "integer"
+                        },
+                        "lastDrawnAs": {
+                          "type": "integer"
+                        },
+                        "lastDrawnShape": {
+                          "type": "integer"
+                        },
+                        "lastDrawnShape2": {
+                          "type": "integer"
+                        },
+                        "drawnAs": {
+                          "type": "integer"
+                        },
+                        "drawnAttribute": {
+                          "type": "integer"
+                        },
+                        "areaControl": {
+                          "type": "integer"
+                        },
+                        "multiTileVector": {
+                          "type": "integer"
+                        },
+                        "objectDeleteLock": {
+                          "type": "integer"
+                        },
+                        "placeHolders": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "type": "object",
+              "properties": {
+                "mapSize": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": "integer"
+                  }
+                },
+                "worldSize": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": "integer"
+                  }
+                },
+                "tiles": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#Genie.Tile"
+                    }
+                  }
+                }
+              }
             }
           },
           "type": "object",
