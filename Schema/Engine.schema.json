@@ -243,7 +243,14 @@
                 "sprites": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/definitions/Genie/definitions/Game/definitions/World/definitions/Sprite"
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "$ref": "#Genie.Sprite"
+                      }
+                    ]
                   }
                 },
                 "scenario": {
