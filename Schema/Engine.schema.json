@@ -237,7 +237,7 @@
                 "sounds": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/definitions/Genie/definitions/Game/definitions/World/definitions/Sound"
+                    "$ref": "#Genie.Sound"
                   }
                 },
                 "sprites": {
