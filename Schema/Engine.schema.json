@@ -58,6 +58,163 @@
                   "required": [
                     "id"
                   ]
+                },
+                "Scenario": {
+                  "definitions": {
+                    "Timeline": {
+                      "type": "object"
+                    }
+                  },
+                  "type": "object",
+                  "properties": {
+                    "timeline": {
+                      "$ref": "#/definitions/Genie/definitions/Game/definitions/World/definitions/Scenario/definitions/Timeline"
+                    },
+                    "victoryConquest": {
+                      "type": "integer"
+                    },
+                    "playerNames": {
+                      "type": "array",
+                      "maxItems": 16,
+                      "items": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "maxLength": 256
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "scenarioName": {
+                      "type": "string",
+                      "maxLength": 256
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "hints": {
+                      "type": "string"
+                    },
+                    "winMessage": {
+                      "type": "string"
+                    },
+                    "lossMessage": {
+                      "type": "string"
+                    },
+                    "historicalNotes": {
+                      "type": "string"
+                    },
+                    "temporaryTexts": {
+                      "type": "array",
+                      "maxItems": 3,
+                      "items": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "buildListFiles": {
+                      "type": "array",
+                      "maxItems": 16,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "data": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "cityPlanFiles": {
+                      "type": "array",
+                      "maxItems": 16,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "data": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "aiRuleFiles": {
+                      "type": "array",
+                      "maxItems": 16,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "data": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "cinematicPreGame": {
+                      "type": "string",
+                      "maxLength": 224
+                    },
+                    "cinematicVictory": {
+                      "type": "string",
+                      "maxLength": 224
+                    },
+                    "cinematicLoss": {
+                      "type": "string",
+                      "maxLength": 224
+                    },
+                    "missionBitmap": {
+                      "type": "string",
+                      "maxLength": 224
+                    },
+                    "version": {
+                      "type": "number"
+                    },
+                    "playerPostures": {
+                      "type": "array",
+                      "maxItems": 16,
+                      "items": {
+                        "type": "integer"
+                      }
+                    },
+                    "playerTypes": {
+                      "type": "array",
+                      "maxItems": 16,
+                      "items": {
+                        "type": "integer"
+                      }
+                    },
+                    "playerCivilizations": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    },
+                    "playerActives": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    },
+                    "missionPicture": {
+                      "$ref": "#/definitions/Picture"
+                    }
+                  }
                 }
               },
               "type": "object",
@@ -79,6 +236,9 @@
                   "items": {
                     "$ref": "#/definitions/Genie/definitions/Game/definitions/World/definitions/Sprite"
                   }
+                },
+                "scenario": {
+                  "$ref": "#/definitions/Genie/definitions/Game/definitions/World/definitions/Scenario"
                 }
               }
             }
@@ -106,7 +266,205 @@
                 {
                   "$ref": "#/definitions/Genie/definitions/Game/definitions/World"
                 }
-              ]
+              ],
+              "definitions": {
+                "Scenario": {
+                  "allOf": [
+                    {
+                      "$ref": "#/definitions/Genie/definitions/Game/definitions/World/definitions/Scenario"
+                    }
+                  ],
+                  "definitions": {
+                    "PlayerInfo": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "gold": {
+                              "type": "integer"
+                            },
+                            "wood": {
+                              "type": "integer"
+                            },
+                            "food": {
+                              "type": "integer"
+                            },
+                            "stone": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "integer"
+                          }
+                        }
+                      ]
+                    },
+                    "GlobalVictoryInfo": {
+                      "type": "object",
+                      "properties": {
+                        "conquest":{
+                          "type": "integer"
+                        },
+                        "ruins":{
+                          "type": "integer"
+                        },
+                        "artifacts":{
+                          "type": "integer"
+                        },
+                        "discoveries":{
+                          "type": "integer"
+                        },
+                        "exploration":{
+                          "type": "integer"
+                        },
+                        "gold":{
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "IndividualVictoryInfo": {
+                      "type": "object",
+                      "properties": {
+                        "masterObjectId": {
+                          "type": "integer"
+                        },
+                        "allFlag": {
+                          "type": "integer"
+                        },
+                        "playerId": {
+                          "type": "integer"
+                        },
+                        "targetPlayerId": {
+                          "type": "integer"
+                        },
+                        "area": {
+                          "type": "array",
+                          "minItems": 4,
+                          "maxItems": 4,
+                          "items": {
+                            "type": "integer",
+                            "minimum": 0
+                          }
+                        },
+                        "type": {
+                          "type": "integer"
+                        },
+                        "amount": {
+                          "type": "integer"
+                        },
+                        "attributeId": {
+                          "type": "integer"
+                        },
+                        "objectId": {
+                          "type": "integer"
+                        },
+                        "targetObjectId": {
+                          "type": "integer"
+                        },
+                        "objectPointer": {
+                          "type": "integer"
+                        },
+                        "targetObjectPointer": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "type"
+                      ]
+                    }
+                  },
+                  "properties": {
+                    "playersInfo": {
+                      "type": "array",
+                      "maxItems": 16,
+                      "items": {
+                        "$ref": "#/definitions/Tribe/definitions/Game/definitions/World/definitions/Scenario/definitions/PlayerInfo"
+                      }
+                    },
+                    "globalVictories": {
+                      "$ref": "#/definitions/Tribe/definitions/Game/definitions/World/definitions/Scenario/definitions/GlobalVictoryInfo"
+                    },
+                    "individualVictories": {
+                      "type": "array",
+                      "maxItems": 16,
+                      "items": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "$ref": "#/definitions/Tribe/definitions/Game/definitions/World/definitions/Scenario/definitions/IndividualVictoryInfo"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "diplomacyStances": {
+                      "type": "array",
+                      "maxItems": 16,
+                      "items": {
+                        "type": "array",
+                        "maxItems": 16,
+                        "items": {
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "enum": [
+                                "ALLIED",
+                                "NEUTRAL",
+                                "VENGEFUL",
+                                "ENEMY"
+                              ]
+                            },
+                            {
+                              "type": "integer"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "alliedVictory": {
+                      "type": "array",
+                      "maxItems": 16,
+                      "items": {
+                        "type": "integer"
+                      }
+                    },
+                    "victoryType": {
+                      "type": "integer"
+                    },
+                    "victoryScore": {
+                      "type": "integer"
+                    },
+                    "victoryTime": {
+                      "type": "integer"
+                    },
+                    "mapType": {
+                      "type": "integer",
+                      "default": -1
+                    },
+                    "mapView": {
+                      "type": "array",
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "items": {
+                        "type": "integer",
+                        "default": -1
+                      }
+                    }
+                  }
+                }
+              },
+              "properties": {
+                "scenario": {
+                  "$ref": "#/definitions/Tribe/definitions/Game/definitions/World/definitions/Scenario"
+                }
+              }
             }
           },
           "type": "object",
