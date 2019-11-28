@@ -2,6 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
     "Picture": {
+      "$id": "#Picture",
       "type": "object",
       "properties": {
         "ownMemory": {
@@ -19,10 +20,13 @@
       }
     },
     "Genie": {
+      "$id": "#Genie",
       "definitions": {
         "Game": {
+          "$id": "#Genie.Game",
           "definitions": {
             "ColorTable": {
+              "$id": "#Genie.ColorTable",
               "type": "object",
               "properties": {
                 "id": {
@@ -34,8 +38,10 @@
               }
             },
             "World": {
+              "$id": "#Genie.World",
               "definitions": {
                 "Sound": {
+                  "$id": "#Genie.Sound",
                   "type": "object",
                   "properties": {
                     "id": {
@@ -48,6 +54,7 @@
                   ]
                 },
                 "Sprite": {
+                  "$id": "#Genie.Sprite",
                   "type": "object",
                   "properties": {
                     "id": {
@@ -60,15 +67,17 @@
                   ]
                 },
                 "Scenario": {
+                  "$id": "#Genie.Scenario",
                   "definitions": {
                     "Timeline": {
+                      "$id": "#Genie.Timeline",
                       "type": "object"
                     }
                   },
                   "type": "object",
                   "properties": {
                     "timeline": {
-                      "$ref": "#/definitions/Genie/definitions/Game/definitions/World/definitions/Scenario/definitions/Timeline"
+                      "$ref": "#Genie.Timeline"
                     },
                     "victoryConquest": {
                       "type": "integer"
@@ -238,7 +247,7 @@
                   }
                 },
                 "scenario": {
-                  "$ref": "#/definitions/Genie/definitions/Game/definitions/World/definitions/Scenario"
+                  "$ref": "#Genie.Scenario"
                 }
               }
             }
@@ -246,32 +255,37 @@
           "type": "object",
           "properties": {
             "world": {
-              "$ref": "#/definitions/Genie/definitions/Game/definitions/World"
+              "$ref": "#Genie.World"
             }
           }
         }
       }
     },
     "Tribe": {
+      "allOf": [
+        {
+          "$ref": "#Genie"
+        }
+      ],
       "definitions": {
         "Game": {
           "allOf": [
             {
-              "$ref": "#/definitions/Genie/definitions/Game"
+              "$ref": "#Genie.Game"
             }
           ],
           "definitions": {
             "World": {
               "allOf": [
                 {
-                  "$ref": "#/definitions/Genie/definitions/Game/definitions/World"
+                  "$ref": "#Genie.World"
                 }
               ],
               "definitions": {
                 "Scenario": {
                   "allOf": [
                     {
-                      "$ref": "#/definitions/Genie/definitions/Game/definitions/World/definitions/Scenario"
+                      "$ref": "#Genie.Scenario"
                     }
                   ],
                   "definitions": {
