@@ -637,6 +637,206 @@
                       }
                     }
                   ]
+                },
+                "TileSize": {
+                  "$id": "#Genie.Map.TileSize",
+                  "description": "Contains the X, Y, and Y-delta dimensions of a tile, respectively.",
+                  "type": "array",
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "items": {
+                    "type": "integer"
+                  }
+                },
+                "TilePicture": {
+                  "$id": "#Genie.Map.TilePicture",
+                  "type": "object",
+                  "properties": {
+
+                  }
+                },
+                "TileSet": {
+                  "$id": "#Genie.Map.TileSet",
+                  "type": "object",
+                  "properties": {
+                    "loaded": {
+                      "type": "integer"
+                    },
+                    "random": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "pictureName": {
+                      "type": "string"
+                    },
+                    "resourceId": {
+                      "type": "integer",
+                      "default": -1
+                    },
+                    "shapePointer": {
+                      "type": "integer"
+                    },
+                    "soundPointer": {
+                      "type": "integer"
+                    },
+                    "colors": {
+                      "type": "array",
+                      "minItems": 3,
+                      "maxItems": 5,
+                      "items": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "passableTerrain": {
+                      "type": "integer"
+                    },
+                    "impassableTerrain": {
+                      "type": "integer"
+                    },
+                    "animated": {
+                      "type": "integer"
+                    },
+                    "animationFrames": {
+                      "type": "integer"
+                    },
+                    "pauseFrames": {
+                      "type": "integer"
+                    },
+                    "interval": {
+                      "type": "number"
+                    },
+                    "pauseBetweenLoops": {
+                      "type": "number"
+                    },
+                    "frame": {
+                      "type": "integer"
+                    },
+                    "drawFrame": {
+                      "type": "integer"
+                    },
+                    "animateLast": {
+                      "type": "number"
+                    },
+                    "frameChanged": {
+                      "type": "integer"
+                    },
+                    "drawn": {
+                      "type": "integer"
+                    },
+                    "tiles": {
+                      "type": "array",
+                      "minItems": 0,
+                      "maxItems": 0,
+                      "items": {
+                        "$ref": "#Genie.Map.TilePicture"
+                      }
+                    },
+                    "terrainToDraw": {
+                      "type": "integer"
+                    },
+                    "dimension": {
+                      "type": "array",
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "items": {
+                        "type": "integer"
+                      }
+                    },
+                    "borders": {
+                      "type": "array",
+                      "minItems": 0,
+                      "maxItems": 0,
+                      "items": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "array",
+                            "minItems": 12,
+                            "maxItems": 12,
+                            "items": {
+                              "type": "integer"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "placements": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "masterObjectId": {
+                            "type": "integer"
+                          },
+                          "density": {
+                            "type": "integer"
+                          },
+                          "flag": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "placementsUsed": {
+                      "type": "integer"
+                    },
+                    "drawnTile": {
+                      "type": "integer"
+                    },
+                    "underlayTerrain": {
+                      "type": "integer"
+                    },
+                    "borderStyle": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "TerrainSet": {
+                  "$id": "#Genie.Map.TerrainSet",
+                  "allOf": [
+                    {
+                      "$ref": "#Genie.Map.TileSet"
+                    }
+                  ],
+                  "type": "object",
+                  "properties": {
+
+                  }
+                },
+                "OverlaySet": {
+                  "$id": "#Genie.Map.OverlaySet",
+                  "allOf": [
+                    {
+                      "$ref": "#Genie.Map.TileSet"
+                    }
+                  ],
+                  "type": "object",
+                  "properties": {
+
+                  }
+                },
+                "BorderSet": {
+                  "$id": "#Genie.Map.BorderSet",
+                  "allOf": [
+                    {
+                      "$ref": "#Genie.Map.TileSet"
+                    }
+                  ],
+                  "type": "object",
+                  "properties": {
+
+                  }
                 }
               },
               "type": "object",
@@ -656,6 +856,133 @@
                   "items": {
                     "type": "integer"
                   }
+                },
+                "tileSizes": {
+                  "type": "array",
+                  "minItems": 19,
+                  "maxItems": 19,
+                  "items": {
+                    "$ref": "#Genie.Map.TileSize"
+                  }
+                },
+                "terrains": {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "$ref": "#Genie.Map.TerrainSet"
+                      }
+                    ]
+                  }
+                },
+                "maxTerrains": {
+                  "type": "integer"
+                },
+                "overlays": {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "$ref": "#Genie.Map.OverlaySet"
+                      }
+                    ]
+                  }
+                },
+                "maxOverlays": {
+                  "type": "integer"
+                },
+                "borders": {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "$ref": "#Genie.Map.BorderSet"
+                      }
+                    ]
+                  }
+                },
+                "maxBorders": {
+                  "type": "integer"
+                },
+                "tileWidth": {
+                  "type": "integer"
+                },
+                "tileHeight": {
+                  "type": "integer"
+                },
+                "tileHalfWidth": {
+                  "type": "integer"
+                },
+                "tileHalfHeight": {
+                  "type": "integer"
+                },
+                "elevationHeight": {
+                  "type": "integer"
+                },
+                "currentPoint": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": "integer"
+                  }
+                },
+                "blockArea": {
+                  "type": "array",
+                  "minItems": 4,
+                  "maxItems": 4,
+                  "items": {
+                    "type": "integer"
+                  }
+                },
+                "anyFrameChange": {
+                  "type": "integer",
+                  "default": 0
+                },
+                "visibleFlag": {
+                  "type": "integer",
+                  "default": 0
+                },
+                "fogFlag": {
+                  "type": "integer",
+                  "default": 0
+                },
+                "UMV_Data_List_Used": {
+                  "type": "integer",
+                  "default": 0
+                },
+                "UMV_Data_Points": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#Genie.Map.UMV_Offset_Point"
+                  }
+                },
+                "obstructionManager": {
+                  "$ref": "#Genie.ObstructionManager"
+                },
+                "randomMap": {
+                  "$ref": "#Genie.Landscape.DatabaseController"
+                },
+                "zoneMaps": {
+                  "$ref": "#Genie.ZoneMapLists"
+                },
+                "unifiedMap": {
+                  "$ref": "#Genie.UnifiedVisibleMap"
+                },
+                "unitManager": {
+                  "$ref": "#Genie.VisibleUnitManager"
+                },
+                "copyData": {
+                  "$ref": "#Genie.Map.CopyData"
                 },
                 "tiles": {
                   "type": "array",
