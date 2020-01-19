@@ -34,6 +34,50 @@
                 },
                 "name": {
                   "type": "string"
+                },
+                "referenceId": {
+                  "type": "integer"
+                },
+                "translateTable": {
+                  "type": "integer"
+                },
+                "colorTransformBase": {
+                  "type": "integer"
+                },
+                "unitOutlineColor": {
+                  "type": "integer"
+                },
+                "selectionColors": {
+                  "type": "array",
+                  "maxItems": 2,
+                  "items": {
+                    "type": "integer"
+                  }
+                },
+                "miniMapColors": {
+                  "type": "array",
+                  "maxItems": 3,
+                  "items": {
+                    "type": "integer"
+                  }
+                },
+                "textColors": {
+                  "type": "array",
+                  "maxItems": 2,
+                  "items": {
+                    "type": "integer"
+                  }
+                },
+                "textColorRGB": {
+                  "type": "array",
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "items": {
+                    "type": "integer"
+                  }
+                },
+                "reserved": {
+                  "type": "integer"
                 }
               }
             },
