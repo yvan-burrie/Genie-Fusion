@@ -110,6 +110,10 @@
                     "id"
                   ]
                 },
+                "Player": {
+                  "$id": "#Genie.Player",
+                  "type": "object"
+                },
                 "Scenario": {
                   "$id": "#Genie.Scenario",
                   "definitions": {
@@ -272,11 +276,45 @@
               },
               "type": "object",
               "properties": {
-                "colorTables": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Genie/definitions/Game/definitions/ColorTable"
-                  }
+                "worldTime": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "oldWorldTime": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "worldTimeDelta": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "timer": {
+                  "type": "number"
+                },
+                "oldTime": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "gameSpeed": {
+                  "type": "number"
+                },
+                "tempPause": {
+                  "type": "integer"
+                },
+                "gameState": {
+                  "type": "integer"
+                },
+                "gameEndCondition": {
+                  "type": "integer"
+                },
+                "soundUpdateIndex": {
+                  "type": "integer"
+                },
+                "spriteUpdateIndex": {
+                  "type": "integer"
+                },
+                "map": {
+                  "$ref": "#Genie.Map"
                 },
                 "sounds": {
                   "type": "array",
@@ -297,8 +335,222 @@
                     ]
                   }
                 },
+                "players": {
+                  "type": "array",
+                  "maxItems": 16,
+                  "items": {
+                    "$ref": "#Genie.Player"
+                  }
+                },
+                "masterPlayers": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#Genie.MasterPlayer"
+                  }
+                },
+                "effects": {
+                  "$ref": "#Genie.Effects"
+                },
+                "terrainsUsed": {
+                  "type": "integer"
+                },
+                "terrains": {
+                  "description": "Passable terrains contain values that modify the behavior between units and tiles on the map.",
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "extraTerrain": {
+                  "$ref": "#Genie.ExtraTerrain"
+                },
+                "commands": {
+                  "$ref": "#Genie.Commands"
+                },
                 "scenario": {
                   "$ref": "#Genie.Scenario"
+                },
+                "particles": {
+                  "$ref": "#Genie.Particles"
+                },
+                "mapAnalysis": {
+                  "$ref": "#Genie.MapAnalysis"
+                },
+                "colorTables": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#Genie.ColorTable"
+                  }
+                },
+                "nextObjectId": {
+                  "description": "Should be incremented each time an object is created.",
+                  "type": "integer"
+                },
+                "nextReusableObjectId": {
+                  "description": "Should be incremented each time an object is created.",
+                  "type": "integer",
+                  "default": -1
+                },
+                "scenarioObjectId": {
+                  "type": "integer"
+                },
+                "scenarioObjectFlag": {
+                  "type": "integer"
+                },
+                "randomSeed": {
+                  "type": "integer",
+                  "default": 0
+                },
+                "currentPlayerId": {
+                  "type": "integer",
+                  "default": 0
+                },
+                "mapView": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": "integer"
+                  }
+                },
+                "soundFalloffRatio": {
+                  "type": "integer",
+                  "default": 0
+                },
+                "worldTimeDeltaSeconds": {
+                  "type": "integer",
+                  "default": 0
+                },
+                "objects": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#Genie.StaticObject"
+                  }
+                },
+                "maxObjects": {
+                  "type": "integer",
+                  "default": 10000
+                },
+                "negativeObjects": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#Genie.StaticObject"
+                  }
+                },
+                "maxNegativeObjects": {
+                  "type": "integer",
+                  "default": 1000
+                },
+                "playBook": {
+                  "$ref": "#Genie.Artificial.PlayBook"
+                },
+                "campaignId": {
+                  "description": "Index of current campaign.",
+                  "type": "integer"
+                },
+                "campaignPlayerId": {
+                  "description": "Index of current campaign player.",
+                  "type": "integer"
+                },
+                "campaignScenarioId": {
+                  "description": "Index of current campaign scenario.",
+                  "type": "integer"
+                },
+                "playerTurn": {
+                  "type": "integer"
+                },
+                "playersTimeDelta": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                },
+                "reusableStaticObjects": {
+                },
+                "reusableAnimatedObjects": {
+                  "$ref": "#Genie.ObjectList"
+                },
+                "reusableMovingObjects": {
+                  "$ref": "#Genie.ObjectList"
+                },
+                "reusableActionObjects": {
+                  "$ref": "#Genie.ObjectList"
+                },
+                "reusableCombatObjects": {
+                  "$ref": "#Genie.ObjectList"
+                },
+                "reusableMissileObjects": {
+                  "$ref": "#Genie.ObjectList"
+                },
+                "reusableDoppleObjects": {
+                  "$ref": "#Genie.ObjectList"
+                },
+                "maximumComputerPlayerUpdateTime": {
+                  "type": "integer",
+                  "default": 2
+                },
+                "availableComputerPlayerUpdateTime": {
+                  "type": "integer",
+                  "default": 2
+                },
+                "currentUpdateComputerPlayerId": {
+                  "type": "integer",
+                  "default": -1
+                },
+                "autoSaveName": {
+                  "type": "string"
+                },
+                "autoSaveCount": {
+                  "type": "integer",
+                  "default": 0
+                },
+                "autoSaveTimer": {
+                  "type": "integer",
+                  "default": 0
+                },
+                "tasks": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#Genie.TaskList"
+                  }
+                },
+                "difficultyLevel": {
+                  "type": "integer",
+                  "default": -1
+                },
+                "allianceLocked": {
+                  "type": "integer"
+                },
+                "paths": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#Genie.Path"
+                  }
+                },
+                "pathIdCounter": {
+                  "type": "integer",
+                  "default": 0
+                },
+                "unitGroups": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#Genie.UnitGroup"
+                  }
+                },
+                "contextAnalyzer": {
+                  "$ref": "#Genie.ContextAnalyzer"
+                },
+                "replayTimeStart": {
+                  "type": "integer",
+                  "default": 0
+                },
+                "replayRecordedInterval": {
+                  "type": "integer",
+                  "default": 0
+                },
+                "replayPauseTime": {
+                  "type": "integer",
+                  "default": 0
                 }
               }
             },
