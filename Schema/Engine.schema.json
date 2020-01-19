@@ -70,14 +70,14 @@
                   "$id": "#Genie.Scenario",
                   "definitions": {
                     "Timeline": {
-                      "$id": "#Genie.Timeline",
+                      "$id": "#Genie.Scenario.Timeline",
                       "type": "object"
                     }
                   },
                   "type": "object",
                   "properties": {
                     "timeline": {
-                      "$ref": "#Genie.Timeline"
+                      "$ref": "#Genie.Scenario.Timeline"
                     },
                     "victoryConquest": {
                       "type": "integer"
@@ -221,7 +221,7 @@
                       }
                     },
                     "missionPicture": {
-                      "$ref": "#/definitions/Picture"
+                      "$ref": "#Picture"
                     }
                   }
                 }
