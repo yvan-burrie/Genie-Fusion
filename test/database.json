@@ -1,0 +1,26 @@
+{
+  "game": {
+    "world": {
+      "sounds": [
+        {
+          "id": 0
+        },
+        {
+          "id": 1
+        }
+      ],
+      "sprites": [
+        null,
+        {
+          "id": 1
+        }
+      ],
+      "scenario": {
+
+      },
+      "map": {
+
+      }
+    }
+  }
+}

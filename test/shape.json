@@ -1,0 +1,16 @@
+{
+  "header": {
+    "version": "2.0N",
+    "comment": ""
+  },
+  "frames": [
+    {
+      "paletteOffset": 0,
+      "properties": [],
+      "outlines": [[0, 0], null],
+      "commands": [
+        1
+      ]
+    }
+  ]
+}
