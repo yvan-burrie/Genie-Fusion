@@ -654,7 +654,6 @@
                   "$id": "#Genie.Map.TilePicture",
                   "type": "object",
                   "properties": {
-
                   }
                 },
                 "TileSet": {
@@ -813,7 +812,6 @@
                   ],
                   "type": "object",
                   "properties": {
-
                   }
                 },
                 "OverlaySet": {
@@ -825,7 +823,6 @@
                   ],
                   "type": "object",
                   "properties": {
-
                   }
                 },
                 "BorderSet": {
@@ -837,7 +834,6 @@
                   ],
                   "type": "object",
                   "properties": {
-
                   }
                 }
               },
@@ -1065,22 +1061,22 @@
                     "GlobalVictoryInfo": {
                       "type": "object",
                       "properties": {
-                        "conquest":{
+                        "conquest": {
                           "type": "integer"
                         },
-                        "ruins":{
+                        "ruins": {
                           "type": "integer"
                         },
-                        "artifacts":{
+                        "artifacts": {
                           "type": "integer"
                         },
-                        "discoveries":{
+                        "discoveries": {
                           "type": "integer"
                         },
-                        "exploration":{
+                        "exploration": {
                           "type": "integer"
                         },
-                        "gold":{
+                        "gold": {
                           "type": "integer"
                         }
                       }
