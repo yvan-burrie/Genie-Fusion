@@ -1,11 +1,15 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "#Campaign",
+  "title": "Eineg campaign schema",
+  "description": "Schema for JSON-serialized campaign (CPN, CPX) file.",
   "type": "object",
   "properties": {
     "title": {
       "type": "string"
     },
     "scenarios": {
+      "description": "Each scenario can be either a serialized scenario or the name of a scenario file",
       "type": "array",
       "items": {
         "anyOf": [

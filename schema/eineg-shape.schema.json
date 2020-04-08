@@ -1,6 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "#Shape",
+  "title": "Eineg shape schema",
+  "description": "Schema for JSON-serialized shape (SHP, SLP) file.",
   "definitions": {
     "Header": {
       "$id": "#Header",
