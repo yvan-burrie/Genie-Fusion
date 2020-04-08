@@ -20,7 +20,7 @@
       "type": "string"
     },
     "game": {
-      "$ref": "Engine.schema.json#/definitions/Genie/definitions/Game"
+      "$ref": "eineg.schema.json#/definitions/Genie/definitions/Game"
     }
   }
 }
