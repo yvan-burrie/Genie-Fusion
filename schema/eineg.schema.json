@@ -1235,6 +1235,17 @@
   },
   "type": "object",
   "properties": {
+    "version": {
+      "default": 1.0,
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number"
+        }
+      ]
+    },
     "game": {
       "$ref": "#/definitions/Tribe/definitions/Game"
     }

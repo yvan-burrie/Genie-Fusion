@@ -5,6 +5,17 @@
   "description": "Schema for JSON-serialized scenario (SCN, SCX) file.",
   "type": "object",
   "properties": {
+    "version": {
+      "default": 1.0,
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number"
+        }
+      ]
+    },
     "title": {
       "type": "string"
     },
