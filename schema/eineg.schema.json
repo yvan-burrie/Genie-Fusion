@@ -62,7 +62,7 @@
           "type": "object",
           "properties": {
             "world": {
-              "$ref": "#Eineg.Genie.WorldModel"
+              "$ref": "#Eineg.Genie.World"
             }
           },
           "definitions": {
@@ -172,7 +172,7 @@
             "variants": {
               "type": "array",
               "items": {
-                "$ref": "#Eineg.Genie.SoundVariantModel"
+                "$ref": "#Eineg.Genie.SoundVariant"
               }
             }
           },
@@ -181,7 +181,7 @@
           ],
           "definitions": {
             "Variant": {
-              "$id": "#Eineg.Genie.SoundVariantModel",
+              "$id": "#Eineg.Genie.SoundVariant",
               "properties": {
                 "fileName": {
                   "type": "string"
@@ -4601,7 +4601,7 @@
           }
         },
         "World": {
-          "$id": "#Eineg.Genie.WorldModel",
+          "$id": "#Eineg.Genie.World",
           "type": "object",
           "properties": {
             "xyz": {
@@ -5385,7 +5385,7 @@
         },
         "World": {
           "$id": "#Eineg.Tribe.World",
-          "$ref": "#Eineg.Genie.WorldModel",
+          "$ref": "#Eineg.Genie.World",
           "definitions": {
           },
           "properties": {
