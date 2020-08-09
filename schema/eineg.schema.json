@@ -2559,8 +2559,8 @@
             }
           ]
         },
-        "AnyObjectList": {
-          "$id": "#Eineg.Genie.AnyObjectList",
+        "ObjectListCombo": {
+          "$id": "#Eineg.Genie.ObjectListCombo",
           "anyOf": [
             {
               "$ref": "#Eineg.Genie.ObjectList"
@@ -3224,7 +3224,7 @@
           "$id": "#Eineg.Genie.ActiveSpriteNode",
           "properties": {
             "sprite": {
-              "$ref": "#Eineg.Genie.AnyActiveSprite"
+              "$ref": "#Eineg.Genie.ActiveSpriteCombo"
             },
             "order": {
               "type": "integer"
@@ -3247,8 +3247,8 @@
             }
           }
         },
-        "AnyActiveSprite": {
-          "$id": "#Eineg.Genie.AnyActiveSprite",
+        "ActiveSpriteCombo": {
+          "$id": "#Eineg.Genie.ActiveSpriteCombo",
           "anyOf": [
             {
               "$ref": "#Eineg.Genie.ActiveSprite"
@@ -4781,7 +4781,7 @@
             "reusableStaticObjects": {
               "anyOf": [
                 {
-                  "$ref": "#Eineg.Genie.AnyObjectList"
+                  "$ref": "#Eineg.Genie.ObjectListCombo"
                 },
                 {
                   "type": "null"
@@ -4791,7 +4791,7 @@
             "reusableAnimatedObjects": {
               "anyOf": [
                 {
-                  "$ref": "#Eineg.Genie.AnyObjectList"
+                  "$ref": "#Eineg.Genie.ObjectListCombo"
                 },
                 {
                   "type": "null"
@@ -4801,7 +4801,7 @@
             "reusableDoppleObjects": {
               "anyOf": [
                 {
-                  "$ref": "#Eineg.Genie.AnyObjectList"
+                  "$ref": "#Eineg.Genie.ObjectListCombo"
                 },
                 {
                   "type": "null"
@@ -4811,7 +4811,7 @@
             "reusableMovingObjects": {
               "anyOf": [
                 {
-                  "$ref": "#Eineg.Genie.AnyObjectList"
+                  "$ref": "#Eineg.Genie.ObjectListCombo"
                 },
                 {
                   "type": "null"
@@ -4821,7 +4821,7 @@
             "reusableActionObjects": {
               "anyOf": [
                 {
-                  "$ref": "#Eineg.Genie.AnyObjectList"
+                  "$ref": "#Eineg.Genie.ObjectListCombo"
                 },
                 {
                   "type": "null"
@@ -4831,7 +4831,7 @@
             "reusableCombatObjects": {
               "anyOf": [
                 {
-                  "$ref": "#Eineg.Genie.AnyObjectList"
+                  "$ref": "#Eineg.Genie.ObjectListCombo"
                 },
                 {
                   "type": "null"
@@ -4841,7 +4841,7 @@
             "reusableMissileObjects": {
               "anyOf": [
                 {
-                  "$ref": "#Eineg.Genie.AnyObjectList"
+                  "$ref": "#Eineg.Genie.ObjectListCombo"
                 },
                 {
                   "type": "null"
