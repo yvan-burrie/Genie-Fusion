@@ -2156,12 +2156,12 @@
               "if": {
                 "properties": {
                   "kind": {
-                    "$ref": "#Eineg.Genie.BasePlayerKind"
+                    "$ref": "#Eineg.Genie.PlayerKind"
                   }
                 }
               },
               "then": {
-                "$ref": "#Eineg.Genie.BasePlayer"
+                "$ref": "#Eineg.Genie.Player"
               }
             },
             {
@@ -2178,19 +2178,24 @@
             }
           ]
         },
-        "BasePlayerKind": {
-          "$id": "#Eineg.Genie.BasePlayerKind",
+        "PlayerKind": {
+          "$id": "#Eineg.Genie.PlayerKind",
           "anyOf": [
             {
-              "const": "GENIE_BASE_PLAYER"
+              "const": "GENIE_PLAYER"
             },
             {
               "const": 0
             }
           ]
         },
-        "BasePlayer": {
-          "$id": "#Eineg.Genie.BasePlayer",
+        "PlayerIdentity": {
+          "$id": "#Eineg.Genie.PlayerIdentity",
+          "type": "integer",
+          "default": -1
+        },
+        "Player": {
+          "$id": "#Eineg.Genie.Player",
           "type": "object",
           "properties": {
             "computerPlayer": {
@@ -2198,7 +2203,8 @@
               "default": 0
             },
             "id": {
-              "type": "integer"
+              "type": "integer",
+              "minimum": 0
             },
             "name": {
               "type": "string"
@@ -2542,22 +2548,6 @@
               "default": 0
             }
           }
-        },
-        "PlayerIdentity": {
-          "$id": "#Eineg.Genie.PlayerIdentity",
-          "type": "integer",
-          "default": -1
-        },
-        "PlayerKind": {
-          "$id": "#Eineg.Genie.PlayerKind",
-          "anyOf": [
-            {
-              "const": 0
-            },
-            {
-              "const": "GENIE_PLAYER"
-            }
-          ]
         },
         "ObjectListCombo": {
           "$id": "#Eineg.Genie.ObjectListCombo",
