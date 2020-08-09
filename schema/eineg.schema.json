@@ -5744,236 +5744,6 @@
         "Triggers": {
           "$id": "#Eineg.Tribe.Triggers",
           "type": "object",
-          "definitions": {
-            "Trigger": {
-              "$id": "#Eineg.Tribe.Trigger",
-              "type": "object",
-              "definitions": {
-                "Entry": {
-                  "$id": "#Eineg.Tribe.Trigger.Entry",
-                  "properties": {
-                    "name": {
-                      "$comment": "Optional: naming this helps to recognize this.",
-                      "type": "string"
-                    },
-                    "note": {
-                      "$comment": "Optional: leaving a note helps understand this.",
-                      "type": "string"
-                    },
-                    "type": {
-                      "anyOf": [
-                        {
-                          "type": "integer"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
-                    },
-                    "arguments": {
-                      "$comment": "Beware that the list of arguments should override dynamic arguments.",
-                      "type": "array",
-                      "items": {
-                        "anyOf": [
-                          {
-                            "type": "integer",
-                            "default": -1
-                          },
-                          {
-                            "$comment": "In the rare occurrence that true or false may be needed.",
-                            "type": "boolean"
-                          },
-                          {
-                            "$comment": "Rarely used other than referencing a trigger via name rather than index.",
-                            "type": "string"
-                          }
-                        ]
-                      }
-                    },
-                    "size": {
-                      "$comment": "Optional: beware that this changes the size of the arguments list.",
-                      "type": "integer"
-                    },
-                    "goal": {
-                      "$comment": "todo: rename to aiScriptGoal or aiSignal ???",
-                      "type": "integer",
-                      "default": -1
-                    },
-                    "amount": {
-                      "type": "integer",
-                      "default": -1
-                    },
-                    "attributeId": {
-                      "$ref": "#Eineg.Genie.AttributeIdentity"
-                    },
-                    "diplomacy": {
-                      "type": "integer",
-                      "default": -1
-                    },
-                    "objectIds": {
-                      "anyOf": [
-                        {
-                          "$ref": "#Eineg.Genie.ObjectIdentities"
-                        },
-                        {
-                          "$ref": "#Eineg.Genie.ObjectIdentity"
-                        }
-                      ]
-                    },
-                    "targetObjectId": {
-                      "$ref": "#Eineg.Genie.ObjectIdentity"
-                    },
-                    "masterObjectId": {
-                      "$ref": "#Eineg.Genie.MasterObjectIdentity"
-                    },
-                    "playerId": {
-                      "$ref": "#Eineg.Genie.PlayerIdentity"
-                    },
-                    "targetPlayerId": {
-                      "$ref": "#Eineg.Genie.PlayerIdentity"
-                    },
-                    "technologyId": {
-                      "$ref": "#Eineg.Tribe.TechnologyId"
-                    },
-                    "stringTableId": {
-                      "$ref": "#Eineg.StringIdentity"
-                    },
-                    "soundResourceId": {
-                      "$ref": "#Eineg.ResourceIdentity"
-                    },
-                    "timer": {
-                      "type": "integer",
-                      "default": -1
-                    },
-                    "trigger": {
-                      "anyOf": [
-                        {
-                          "type": "integer",
-                          "default": -1
-                        },
-                        {
-                          "$comment": "References a trigger by its name instead of its index.",
-                          "type": "string"
-                        }
-                      ]
-                    },
-                    "location": {
-                      "type": "array",
-                      "minItems": 2,
-                      "maxItems": 2,
-                      "items": {
-                        "type": "integer",
-                        "default": -1
-                      }
-                    },
-                    "area": {
-                      "type": "array",
-                      "minItems": 4,
-                      "maxItems": 4,
-                      "items": {
-                        "type": "integer",
-                        "default": -1
-                      }
-                    },
-                    "objectGroup": {
-                      "$comment": "todo",
-                      "type": "integer",
-                      "default": -1
-                    },
-                    "objectType": {
-                      "$comment": "todo",
-                      "type": "integer",
-                      "default": -1
-                    },
-                    "difficulty": {
-                      "type": "integer",
-                      "default": -1
-                    }
-                  }
-                },
-                "Effect": {
-                  "$id": "#Eineg.Tribe.Trigger.Effect",
-                  "$ref": "#Eineg.Tribe.Trigger.Entry",
-                  "properties": {
-                    "chatText": {
-                      "type": "string"
-                    },
-                    "soundFileName": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "Condition": {
-                  "$id": "#Eineg.Tribe.Trigger.Condition",
-                  "$ref": "#Eineg.Tribe.Trigger.Entry"
-                }
-              },
-              "properties": {
-                "state": {
-                  "anyOf": [
-                    {
-                      "type": "integer"
-                    },
-                    {
-                      "enum": [
-                        "DORMANT",
-                        "READY",
-                        "RUNNING",
-                        "EXPIRED"
-                      ]
-                    }
-                  ]
-                },
-                "loop": {
-                  "anyOf": [
-                    {
-                      "type": "boolean"
-                    },
-                    {
-                      "type": "integer"
-                    }
-                  ]
-                },
-                "timer": {
-                  "type": "number"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "descriptionStringId": {
-                  "$ref": "#Eineg.StringIdentity"
-                },
-                "descriptionDisplayed": {
-                  "anyOf": [
-                    {
-                      "type": "boolean"
-                    },
-                    {
-                      "type": "integer"
-                    }
-                  ]
-                },
-                "descriptionOrder": {
-                  "type": "integer"
-                },
-                "effects": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#Eineg.Tribe.Trigger.Effect"
-                  }
-                },
-                "conditions": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#Eineg.Tribe.Trigger.Condition"
-                  }
-                }
-              }
-            }
-          },
           "properties": {
             "version": {
               "type": "number"
@@ -5995,6 +5765,234 @@
               "type": "array",
               "items": {
                 "$ref": "#Eineg.Tribe.Trigger"
+              }
+            }
+          }
+        },
+        "Trigger": {
+          "$id": "#Eineg.Tribe.Trigger",
+          "type": "object",
+          "definitions": {
+            "Entry": {
+              "$id": "#Eineg.Tribe.Trigger.Entry",
+              "properties": {
+                "name": {
+                  "$comment": "Optional: naming this helps to recognize this.",
+                  "type": "string"
+                },
+                "note": {
+                  "$comment": "Optional: leaving a note helps understand this.",
+                  "type": "string"
+                },
+                "type": {
+                  "anyOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "arguments": {
+                  "$comment": "Beware that the list of arguments should override dynamic arguments.",
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "default": -1
+                      },
+                      {
+                        "$comment": "In the rare occurrence that true or false may be needed.",
+                        "type": "boolean"
+                      },
+                      {
+                        "$comment": "Rarely used other than referencing a trigger via name rather than index.",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                "size": {
+                  "$comment": "Optional: beware that this changes the size of the arguments list.",
+                  "type": "integer"
+                },
+                "goal": {
+                  "$comment": "todo: rename to aiScriptGoal or aiSignal ???",
+                  "type": "integer",
+                  "default": -1
+                },
+                "amount": {
+                  "type": "integer",
+                  "default": -1
+                },
+                "attributeId": {
+                  "$ref": "#Eineg.Genie.AttributeIdentity"
+                },
+                "diplomacy": {
+                  "type": "integer",
+                  "default": -1
+                },
+                "objectIds": {
+                  "anyOf": [
+                    {
+                      "$ref": "#Eineg.Genie.ObjectIdentities"
+                    },
+                    {
+                      "$ref": "#Eineg.Genie.ObjectIdentity"
+                    }
+                  ]
+                },
+                "targetObjectId": {
+                  "$ref": "#Eineg.Genie.ObjectIdentity"
+                },
+                "masterObjectId": {
+                  "$ref": "#Eineg.Genie.MasterObjectIdentity"
+                },
+                "playerId": {
+                  "$ref": "#Eineg.Genie.PlayerIdentity"
+                },
+                "targetPlayerId": {
+                  "$ref": "#Eineg.Genie.PlayerIdentity"
+                },
+                "technologyId": {
+                  "$ref": "#Eineg.Tribe.TechnologyId"
+                },
+                "stringTableId": {
+                  "$ref": "#Eineg.StringIdentity"
+                },
+                "soundResourceId": {
+                  "$ref": "#Eineg.ResourceIdentity"
+                },
+                "timer": {
+                  "type": "integer",
+                  "default": -1
+                },
+                "trigger": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "default": -1
+                    },
+                    {
+                      "$comment": "References a trigger by its name instead of its index.",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "location": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": "integer",
+                    "default": -1
+                  }
+                },
+                "area": {
+                  "type": "array",
+                  "minItems": 4,
+                  "maxItems": 4,
+                  "items": {
+                    "type": "integer",
+                    "default": -1
+                  }
+                },
+                "objectGroup": {
+                  "$comment": "todo",
+                  "type": "integer",
+                  "default": -1
+                },
+                "objectType": {
+                  "$comment": "todo",
+                  "type": "integer",
+                  "default": -1
+                },
+                "difficulty": {
+                  "type": "integer",
+                  "default": -1
+                }
+              }
+            },
+            "Effect": {
+              "$id": "#Eineg.Tribe.Trigger.Effect",
+              "$ref": "#Eineg.Tribe.Trigger.Entry",
+              "properties": {
+                "chatText": {
+                  "type": "string"
+                },
+                "soundFileName": {
+                  "type": "string"
+                }
+              }
+            },
+            "Condition": {
+              "$id": "#Eineg.Tribe.Trigger.Condition",
+              "$ref": "#Eineg.Tribe.Trigger.Entry"
+            }
+          },
+          "properties": {
+            "state": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "enum": [
+                    "DORMANT",
+                    "READY",
+                    "RUNNING",
+                    "EXPIRED"
+                  ]
+                }
+              ]
+            },
+            "loop": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "timer": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "descriptionStringId": {
+              "$ref": "#Eineg.StringIdentity"
+            },
+            "descriptionDisplayed": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "descriptionOrder": {
+              "type": "integer"
+            },
+            "effects": {
+              "type": "array",
+              "items": {
+                "$ref": "#Eineg.Tribe.Trigger.Effect"
+              }
+            },
+            "conditions": {
+              "type": "array",
+              "items": {
+                "$ref": "#Eineg.Tribe.Trigger.Condition"
               }
             }
           }
