@@ -153,35 +153,17 @@
             "$ref": "#Eineg.Genie.ColorTable"
           }
         },
+        "SoundIdentity": {
+          "$id": "#Eineg.Genie.SoundIdentity",
+          "type": "integer",
+          "default": -1
+        },
         "Sound": {
           "$id": "#Eineg.Genie.Sound",
           "type": "object",
-          "properties": {
-            "id": {
-              "type": "integer",
-              "minimum": 0
-            },
-            "playAtUpdateCount": {
-              "type": "integer",
-              "default": 0
-            },
-            "cacheTime": {
-              "type": "integer",
-              "default": 300000
-            },
-            "variants": {
-              "type": "array",
-              "items": {
-                "$ref": "#Eineg.Genie.SoundVariant"
-              }
-            }
-          },
-          "required": [
-            "id"
-          ],
           "definitions": {
             "Variant": {
-              "$id": "#Eineg.Genie.SoundVariant",
+              "$id": "#Eineg.Genie.Sound.Variant",
               "properties": {
                 "fileName": {
                   "type": "string"
@@ -201,12 +183,30 @@
                 }
               }
             }
-          }
-        },
-        "SoundIdentity": {
-          "$id": "#Eineg.Genie.SoundIdentity",
-          "type": "integer",
-          "default": -1
+          },
+          "properties": {
+            "id": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "playAtUpdateCount": {
+              "type": "integer",
+              "default": 0
+            },
+            "cacheTime": {
+              "type": "integer",
+              "default": 300000
+            },
+            "variants": {
+              "type": "array",
+              "items": {
+                "$ref": "#Eineg.Genie.Sound.Variant"
+              }
+            }
+          },
+          "required": [
+            "id"
+          ]
         },
         "Sounds": {
           "$id": "#Eineg.Genie.Sounds",
@@ -304,7 +304,7 @@
               "description": "If this has unknown flags, then it should be an integer.",
               "anyOf": [
                 {
-                  "description": "Flags as masks.",
+                  "description": "Flags as bit-masks.",
                   "type": "integer",
                   "default": 0
                 },
